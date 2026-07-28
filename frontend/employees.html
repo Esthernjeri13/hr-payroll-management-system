@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employees</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <strong>HR & Payroll</strong>
+        <span>Employee records</span>
+      </div>
+      <nav class="nav">
+        <a href="./index.html">Dashboard</a>
+        <a class="active" href="./employees.html">Employees</a>
+        <a href="./leave.html">Leave</a>
+        <a href="./payroll.html">Payroll</a>
+        <a href="./notification.html">Notifications</a>
+      </nav>
+    </header>
+
+    <main class="page">
+      <section class="grid two">
+        <div id="employeeFormPanel" class="panel">
+          <h2 id="employeeFormTitle">Create employee</h2>
+          <form id="employeeForm" class="form">
+            <input type="hidden" id="employeeId" />
+            <div class="row">
+              <div class="field">
+                <label for="fullName">Full name</label>
+                <input id="fullName" name="full_name" required />
+              </div>
+              <div class="field">
+                <label for="role">Role</label>
+                <input id="role" name="role" required />
+              </div>
+            </div>
+            <div class="row">
+              <div class="field">
+                <label for="team">Team</label>
+                <input id="team" name="team" required />
+              </div>
+              <div class="field">
+                <label for="managerId">Manager</label>
+                <select id="managerId" name="manager_id">
+                  <option value="">No manager</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="field">
+                <label for="startDate">Start date</label>
+                <input id="startDate" name="start_date" type="date" required />
+              </div>
+              <div class="field">
+                <label for="salary">Salary</label>
+                <input id="salary" name="salary" type="number" min="0" step="0.01" required />
+              </div>
+            </div>
+            <div class="row">
+              <div class="field">
+                <label for="employmentType">Employment type</label>
+                <select id="employmentType" name="employment_type" required>
+                  <option value="Full-time">Full-time</option>
+                  <option value="Part-time">Part-time</option>
+                  <option value="Contract">Contract</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>&nbsp;</label>
+                <button class="primary" type="submit">Save employee</button>
+              </div>
+            </div>
+          </form>
+          <p id="employeeFormStatus" class="status"></p>
+          <div class="actions">
+            <button id="cancelEditButton" class="secondary" type="button">Cancel edit</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Organization list</h2>
+          <p class="muted">Manager names appear under each employee.</p>
+          <div id="employeeListStatus" class="status">Loading employees...</div>
+          <div id="employeeList" class="grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/api.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/employees.js"></script>
+  </body>
+</html>

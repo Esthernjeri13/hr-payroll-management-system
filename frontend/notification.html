@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notifications</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <strong>HR & Payroll</strong>
+        <span>Notifications</span>
+      </div>
+      <nav class="nav">
+        <a href="./index.html">Dashboard</a>
+        <a href="./employees.html">Employees</a>
+        <a href="./leave.html">Leave</a>
+        <a href="./payroll.html">Payroll</a>
+        <a class="active" href="./notification.html">Notifications</a>
+      </nav>
+    </header>
+
+    <main class="page">
+      <section class="card">
+        <h2>Notifications</h2>
+        <div id="notificationStatus" class="status">Loading notifications...</div>
+        <div id="notificationList" class="grid"></div>
+      </section>
+    </main>
+
+    <script src="./js/api.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/notifications.js"></script>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HR & Payroll Dashboard</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <strong>HR & Payroll</strong>
+        <span>Simple internal operations dashboard</span>
+      </div>
+      <nav class="nav">
+        <a class="active" href="./index.html">Dashboard</a>
+        <a href="./employees.html">Employees</a>
+        <a href="./leave.html">Leave</a>
+        <a href="./payroll.html">Payroll</a>
+        <a href="./notification.html">Notifications</a>
+      </nav>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <div class="hero-card">
+          <h1>Manage HR basics without spreadsheets.</h1>
+          <p>
+            Track employees, approve leave with real business rules, and generate monthly payroll
+            records from one lightweight tool.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="./leave.html">Submit leave</a>
+            <button id="approveLeaveButton" class="button secondary" type="button">Approve leave</button>
+            <button id="generatePayrollButton" class="button secondary" type="button">Generate payroll</button>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <small>Pending approvals</small>
+            <strong id="pendingCount">0</strong>
+          </div>
+          <div class="stat">
+            <small>Employees on leave</small>
+            <strong id="currentLeaveCount">0</strong>
+          </div>
+          <div class="stat">
+            <small>Active balances</small>
+            <strong id="balanceCount">0</strong>
+          </div>
+          <div class="stat">
+            <small>Payroll records</small>
+            <strong id="payrollCount">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid two">
+        <div class="panel">
+          <h2>Generate payroll</h2>
+          <form id="dashboardPayrollForm" class="form">
+            <div class="field">
+              <label for="dashboardPayrollPeriod">Payroll month</label>
+              <input id="dashboardPayrollPeriod" type="month" required />
+            </div>
+            <div class="actions">
+              <button class="primary" type="submit">Generate payroll</button>
+            </div>
+          </form>
+          <p id="dashboardPayrollStatus" class="status"></p>
+        </div>
+
+        <div class="panel">
+          <h2>Quick links</h2>
+          <p class="muted">Jump straight to the core workflows.</p>
+          <div class="actions">
+            <a class="button primary" href="./employees.html">Employees</a>
+            <a class="button secondary" href="./leave.html">Leave requests</a>
+            <a class="button secondary" href="./payroll.html">Payslips</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="pendingLeaveSection" class="grid two">
+        <div class="card">
+          <h2>Pending leave approvals</h2>
+          <div id="pendingLeaveStatus" class="status">Loading pending requests...</div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Employee</th>
+                  <th>Period</th>
+                  <th>Type</th>
+                  <th>Manager</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="pendingLeaveBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Employees currently on leave</h2>
+          <div id="currentLeaveStatus" class="status">Loading current leave...</div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Employee</th>
+                  <th>Team</th>
+                  <th>Period</th>
+                  <th>Leave type</th>
+                </tr>
+              </thead>
+              <tbody id="currentLeaveBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid two">
+        <div class="card">
+          <h2>Leave balances</h2>
+          <div id="balancesStatus" class="status">Loading leave balances...</div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Employee</th>
+                  <th>Team</th>
+                  <th>Used</th>
+                  <th>Balance</th>
+                </tr>
+              </thead>
+              <tbody id="balancesBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Payroll history</h2>
+          <div id="payrollStatus" class="status">Loading payroll history...</div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Employee</th>
+                  <th>Period</th>
+                  <th>Gross</th>
+                  <th>Tax</th>
+                  <th>Social</th>
+                  <th>Net</th>
+                </tr>
+              </thead>
+              <tbody id="payrollBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>Built with Express, PostgreSQL, HTML, CSS, and vanilla JavaScript.</small>
+    </footer>
+
+    <script src="./js/api.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/dashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <strong>HR & Payroll</strong>
+        <span>Register</span>
+      </div>
+      <nav class="nav">
+        <a href="./login.html">Login</a>
+        <a class="active" href="./register.html">Register</a>
+      </nav>
+    </header>
+
+    <main class="page" style="max-width: 720px;">
+      <section class="panel">
+        <h1>Create your account</h1>
+        <p class="muted">Keep it simple. Use the same full name as the employee record if this is an employee account.</p>
+        <form id="registerForm" class="form">
+          <div class="field">
+            <label for="registerFullName">Full Name</label>
+            <input id="registerFullName" type="text" required />
+          </div>
+          <div class="field">
+            <label for="registerEmail">Email</label>
+            <input id="registerEmail" type="email" required />
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="registerPassword">Password</label>
+              <input id="registerPassword" type="password" required />
+            </div>
+            <div class="field">
+              <label for="registerConfirmPassword">Confirm Password</label>
+              <input id="registerConfirmPassword" type="password" required />
+            </div>
+          </div>
+          <div class="field">
+            <label>Role</label>
+            <div class="actions" style="margin-top: 0;">
+              <label class="auth-chip"><input type="radio" name="role" value="Employee" checked /> Employee</label>
+              <label class="auth-chip"><input type="radio" name="role" value="HR" /> HR</label>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="primary" type="submit">Register</button>
+          </div>
+        </form>
+        <p id="registerStatus" class="status"></p>
+        <p class="muted">Already have an account? <a class="subtle-link" href="./login.html">Login here.</a></p>
+      </section>
+    </main>
+
+    <script src="./js/api.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/register.js"></script>
+  </body>
+</html>

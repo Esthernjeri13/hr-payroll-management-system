@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payroll</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <strong>HR & Payroll</strong>
+        <span>Monthly payroll</span>
+      </div>
+      <nav class="nav">
+        <a href="./index.html">Dashboard</a>
+        <a href="./employees.html">Employees</a>
+        <a href="./leave.html">Leave</a>
+        <a class="active" href="./payroll.html">Payroll</a>
+        <a href="./notification.html">Notifications</a>
+      </nav>
+    </header>
+
+    <main class="page">
+      <section class="grid two">
+        <div class="panel">
+          <h2>Generate payroll</h2>
+          <form id="payrollForm" class="form">
+            <div class="field">
+              <label for="payrollPeriod">Payroll month</label>
+              <input id="payrollPeriod" type="month" required />
+            </div>
+            <div class="actions">
+              <button class="primary" type="submit">Generate payroll</button>
+            </div>
+          </form>
+          <p id="payrollFormStatus" class="status"></p>
+        </div>
+
+        <div class="card">
+          <h2>Payslips</h2>
+          <div id="payrollListStatus" class="status">Loading payroll records...</div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Employee</th>
+                  <th>Period</th>
+                  <th>Gross</th>
+                  <th>Unpaid leave</th>
+                  <th>Tax</th>
+                  <th>Social</th>
+                  <th>Net</th>
+                </tr>
+              </thead>
+              <tbody id="payrollListBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/api.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/payroll.js"></script>
+  </body>
+</html>
