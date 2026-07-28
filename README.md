@@ -19,7 +19,6 @@ This application is designed to help growing teams manage employee records, leav
 - Monthly payroll generation and payslips
 - Dashboard with approvals, leave balances, and payroll information
 
-=======
 Simple HR and payroll tool built for a coding assessment using Node.js, Express, PostgreSQL, HTML, CSS, and vanilla JavaScript.
 
 ## Project Overview
